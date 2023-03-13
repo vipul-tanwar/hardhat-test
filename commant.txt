@@ -1,0 +1,76 @@
+----------------------------------------------------------
+
+
+//Advance Time on buildbear (4days)
+
+npx hardhat run scripts/deploy.js --network buildbear  
+// Lock with 0.001ETH and unlock timestamp 1678747358 deployed to 0xB9F4db810f68E952Bb3507a570E1D00D80767cCE
+
+npx hardhat run scripts/withdraw.js --network buildbear
+//D:\Work\hardhat-test\node_modules\hardhat\src\internal\core\providers\http.ts:88
+      const error = new ProviderError(
+                    ^
+ProviderError: Error: VM Exception while processing transaction: reverted with reason string 'You can't withdraw yet'
+    at HttpProvider.request (D:\Work\hardhat-test\node_modules\hardhat\src\internal\core\providers\http.ts:88:21)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at EthersProviderWrapper.send (D:\Work\hardhat-test\node_modules\@nomiclabs\hardhat-ethers\src\internal\ethers-provider-wrapper.ts:13:20)
+PS D:\Work\hardhat-test> 
+
+
+//Same Time
+
+npx hardhat run scripts/deploy.js --network buildbear  
+//Lock with 0.001ETH and unlock timestamp 1678741522 deployed to 0x992B6fB26175A7585DDF5B25Dea070aE4023238F
+
+
+npx hardhat run scripts/withdraw.js --network buildbear
+//withdrawTx: 0xba5ebda276c23cebcf2568d7023a187c4ae741d3743964e789c5e20caeb4be47
+receipt: {
+  to: '0x992B6fB26175A7585DDF5B25Dea070aE4023238F',
+  from: '0xf7B9c37a26241F445A6fb42295716AA4f85ef945',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { value: "34096" },
+  logsBloom: '0x00000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xcc5181f494fdecf37b52d88b32af3220f6adc9fc64b3f6dfcc2f2fac59a549e3',
+  transactionHash: '0xba5ebda276c23cebcf2568d7023a187c4ae741d3743964e789c5e20caeb4be47',
+  logs: [
+    {
+      transactionIndex: 0,
+      blockNumber: 10,
+      transactionHash: '0xba5ebda276c23cebcf2568d7023a187c4ae741d3743964e789c5e20caeb4be47',
+      address: '0x992B6fB26175A7585DDF5B25Dea070aE4023238F',
+      topics: [Array],
+      data: '0x00000000000000000000000000000000000000000000000000038d7ea4c6800000000000000000000000000000000000000000000000000000000000640f9023',       
+      logIndex: 0,
+      blockHash: '0xcc5181f494fdecf37b52d88b32af3220f6adc9fc64b3f6dfcc2f2fac59a549e3'
+    }
+  ],
+  blockNumber: 10,
+  confirmations: 1,
+  cumulativeGasUsed: BigNumber { value: "34096" },
+  effectiveGasPrice: BigNumber { value: "266657885" },
+  status: 1,
+  type: 2,
+  byzantium: true,
+  events: [
+    {
+      transactionIndex: 0,
+      blockNumber: 10,
+      transactionHash: '0xba5ebda276c23cebcf2568d7023a187c4ae741d3743964e789c5e20caeb4be47',
+      address: '0x992B6fB26175A7585DDF5B25Dea070aE4023238F',
+      topics: [Array],
+      data: '0x00000000000000000000000000000000000000000000000000038d7ea4c6800000000000000000000000000000000000000000000000000000000000640f9023',       
+      logIndex: 0,
+      blockHash: '0xcc5181f494fdecf37b52d88b32af3220f6adc9fc64b3f6dfcc2f2fac59a549e3',
+      args: [Array],
+      decode: [Function (anonymous)],
+      event: 'Withdrawal',
+      eventSignature: 'Withdrawal(uint256,uint256)',
+      removeListener: [Function (anonymous)],
+      getBlock: [Function (anonymous)],
+      getTransaction: [Function (anonymous)],
+      getTransactionReceipt: [Function (anonymous)]
+    }
+  ]
+}

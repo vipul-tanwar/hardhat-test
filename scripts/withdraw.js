@@ -2,7 +2,7 @@
 
 async function main() {
     const LockContract = await ethers.getContractFactory("Lock");
-    const lockContract = await LockContract.attach("0xEd54586A2A5B826195839be78D6D7fB64177FA5B");
+    const lockContract = await LockContract.attach("0x992B6fB26175A7585DDF5B25Dea070aE4023238F");
     const withdrawTx = await lockContract.withdraw();
     console.log("withdrawTx:", withdrawTx.hash); 
 
@@ -10,5 +10,4 @@ async function main() {
     console.log("receipt:", receipt);
 
 }
-
 main()
