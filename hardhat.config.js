@@ -5,7 +5,7 @@ module.exports = {
   solidity: "0.8.18",
   networks: {
     buildbear: {
-      url: "https://rpc.dev.buildbear.io/sporting-adi-gallia-fee0810d",
-    }
+      url: "https://rpc.dev.buildbear.io/productive-beru-whitesun-lars-969868b0",
+    },
   },
 };
